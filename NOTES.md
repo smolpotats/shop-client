@@ -43,3 +43,5 @@
 | ------ | ----- | ------ |
 | POST | /sign-up | register a new user account |
 | POST  | /sign-in | sign-in to account and generate user token |
+| DELETE | /sign-out | sign-out user and delete token |
+| PATCH | /change-password  | change user password  |
