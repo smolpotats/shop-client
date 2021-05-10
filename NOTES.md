@@ -6,7 +6,7 @@
 - name: string
 - price: number
 - description: string
-- image: string
+- images: array of image urls (different sizes, thumbnails)
 
 ### User:
 - _id: ObjectId
@@ -45,3 +45,26 @@
 | POST  | /sign-in | sign-in to account and generate user token |
 | DELETE | /sign-out | sign-out user and delete token |
 | PATCH | /change-password  | change user password  |
+
+
+## Schedule
+#### Monday 5/10
+- [ ] Deploy API to Heroku
+- [ ] Deploy to Github pages
+
+#### Tuesday 5/11
+- [ ] Auth - Backend
+- [ ] Create
+
+#### Wednesday 5/12
+- [ ] Start integrating Stripe
+- [ ] Create `Product` schema
+- [ ] Create `Order` schema
+
+#### Thursday 5/13
+- [ ] Stripe
+- [ ] Finish `README`
+- [ ] Styling
+
+#### Friday 5/14
+- [ ] Present!!
