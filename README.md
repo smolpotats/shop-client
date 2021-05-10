@@ -24,6 +24,9 @@ or the [Express API Template](https://git.generalassemb.ly/ga-wdi-boston/express
 ![Wireframe 1](/public/images/project_3_wireframe_1.jpg)
 ![Wireframe 2](/public/images/project_3_wireframe_2.jpg)
 
+### ERD
+![Entity Relationship Diagram](public/images/project_3_erd.jpg)
+
 ### Included Routes
 
 This template comes with a handful of front-end routes that display
