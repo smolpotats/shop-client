@@ -10,14 +10,14 @@ export const ordersIndex = (user) => {
   })
 }
 
-// view one order
+/* // view one order
 export const orderShow = (id, user) => {
   return axios({
     url: apiUrl + '/orders/' + id,
     method: 'GET',
     headers: { 'Authorization': `Token token=${user.token}` }
   })
-}
+} */
 
 // create a new order
 export const orderCreate = (order, user) => {
@@ -29,7 +29,7 @@ export const orderCreate = (order, user) => {
   })
 }
 
-// update an order - complete order
+/* // update an order - complete order
 export const orderUpdate = (id, order, user) => {
   return axios({
     url: apiUrl + '/orders' + id,
@@ -37,7 +37,7 @@ export const orderUpdate = (id, order, user) => {
     headers: { 'Authorization': `Token token=${user.token}` },
     data: { order }
   })
-}
+} */
 
 // delete an order
 export const orderDelete = (id, user) => {
