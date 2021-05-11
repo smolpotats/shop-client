@@ -1,6 +1,6 @@
 # Brainstorming
-## Models
 
+## Models
 ### Product:
 - _id: ObjectId
 - name: string
@@ -33,9 +33,9 @@
 | Method | Route | Action |
 | ------ | ----- | ------ |
 | GET | /orders | list order history |
-| GET | /orders/:id | view order details by id |
+~~| GET | /orders/:id | view order details by id |~~
 | POST | /orders | create new order |
-| PATCH | /orders/:id | add or delete items to order |
+~~| PATCH | /orders/:id | add or delete items to order |~~
 | DELETE | /orders/:id | delete order |
 
 ### Auth
@@ -49,20 +49,23 @@
 
 ## Schedule
 #### Monday 5/10
-- [ ] Deploy API to Heroku
-- [ ] Deploy to Github pages
+- [x] Deploy API to Heroku
+- [x] Deploy to Github pages
 
 #### Tuesday 5/11
-- [ ] Auth - Backend
-- [ ] Create
+- [x] Auth - Backend
+- [x] Create `Product` schema
+- [x] Create `Order` schema
+- [ ] Create new order
+- [ ] View all orders
+- [ ] Edit a single order (add or delete items, change isComplete to true)
+- [ ] Delete a completed order
 
 #### Wednesday 5/12
 - [ ] Start integrating Stripe
-- [ ] Create `Product` schema
-- [ ] Create `Order` schema
 
 #### Thursday 5/13
-- [ ] Stripe
+- [ ] Stripe!
 - [ ] Finish `README`
 - [ ] Styling
 
