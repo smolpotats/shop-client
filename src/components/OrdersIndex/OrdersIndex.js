@@ -6,7 +6,6 @@ import Spinner from 'react-bootstrap/Spinner'
 import { orderIndex } from '../../api/orders'
 
 const OrdersIndex = props => {
-  // orders is an empty array
   const [orders, setOrders] = useState([])
   const { msgAlert, user } = this.props
 
@@ -35,8 +34,7 @@ const OrdersIndex = props => {
 
   const listOrders = orders.map(order => (
     <div key={order._id} className='list-orders-item'>
-      Order #: <Link to={`/orders/${order._id}`}>{order._id}</Link>
-      Date: {order.dateCompleted}
+      Order #: {order._id}
       <Link to={`/products/${order.product._id}`}>{order.product}</Link>
       Total: ${order.total}
     </div>
