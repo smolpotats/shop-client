@@ -10,6 +10,7 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import Products from './components/Products/Products'
+import Product from './components/Product/Product'
 
 class App extends Component {
   constructor (props) {
@@ -68,7 +69,9 @@ class App extends Component {
           )} />
         </header>
         <main>
-          <Route exact path='/' component={Products} />
+          <Route exact path ='/' component={Products} />
+          <Route exact path='/products' component={Products} />
+          <Route exact path='/products/:id' component={Product} />
         </main>
       </Fragment>
     )
