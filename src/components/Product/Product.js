@@ -20,6 +20,7 @@ const Product = props => {
 
   return (
     <div key={product.id} className='show-product-item'>
+      <img src={process.env.PUBLIC_URL + `images/${product.id}.jpg`}/>
       <h4>{product.name}</h4>
       <p>{product.description}</p>
       <h5>$ {product.price}</h5>
