@@ -58,8 +58,7 @@
 - [x] Create `Order` schema
 - [ ] Create new order
 - [ ] View all orders
-- [ ] Edit a single order (add or delete items, change isComplete to true)
-- [ ] Delete a completed order
+- [ ] Delete a order
 
 #### Wednesday 5/12
 - [ ] Start integrating Stripe
