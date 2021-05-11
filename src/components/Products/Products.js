@@ -17,6 +17,7 @@ const Products = (props) => {
 
   const listProducts = products.map(product => (
     <div key={product.id} className='list-products-item'>
+      <img src={process.env.PUBLIC_URL + `images/${product.id}.png`}/>
       <h4>{product.name}</h4>
       <p>{product.description}</p>
       <h5>$ {product.price}</h5>
