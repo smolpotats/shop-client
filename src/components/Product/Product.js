@@ -5,12 +5,12 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 // import productData from '../../data/products'
 
-const Product = props => {
+const Product = (props) => {
   const [product, setProduct] = useState(null)
 
   useEffect(() => {
     axios(`${apiUrl}/products/${props.match.params.id}`)
-      .then((res) => setProduct(res.data.product))
+      .then(res => setProduct(res.data.product))
       .catch(console.error)
   }, [])
 
