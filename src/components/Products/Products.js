@@ -16,9 +16,11 @@ const Products = (props) => {
   })
 
   const listProducts = products.map(product => (
-    <li key={product._id} className='list-products-item'>
-      {product.title}
-    </li>
+    <div key={product.id} className='list-products-item'>
+      <h4>{product.name}</h4>
+      <p>{product.description}</p>
+      <h5>$ {product.price}</h5>
+    </div>
   ))
 
   return (

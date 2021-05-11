@@ -1,17 +1,17 @@
-const products [
+const products = [
   {
     id: 1,
     name: 'Boeing 747',
     description: 'The Boeing 747 is a large, long–range wide-body airliner and cargo aircraft manufactured by Boeing Commercial Airplanes in the United States.',
-    image: 'url',
-    price: 747,747,747
+    image: '<img src=".">',
+    price: 747747747.00
   },
   {
     id: 2,
     name: 'My Uncle Joey',
     description: 'He\'s kinda cool and comes over when he knows there\'s food. I\'m pretty sure he\'s homeless!',
     image: 'url',
-    price: 15
+    price: 15.00
   },
   {
     id: 3,
@@ -28,3 +28,5 @@ const products [
     price: 39.99
   }
 ]
+
+export default products
