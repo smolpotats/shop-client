@@ -11,6 +11,11 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import Products from './components/Products/Products'
 import Product from './components/Product/Product'
+import OrdersIndex from './components/OrdersIndex/OrdersIndex'
+import OrderCreate from './components/OrderCreate/OrderCreate'
+import OrderUpdate from './components/OrderUpdate/OrderUpdate'
+// import OrderDelete from './components/OrderDelete/OrderDelete'
+import OrderShow from './components/OrderShow/OrderShow'
 
 class App extends Component {
   constructor (props) {
@@ -21,12 +26,14 @@ class App extends Component {
     }
   }
 
+  // set the user state to the passed in user
   setUser = user => this.setState({ user })
-
+  // reset the user state back to null (signing out our user)
   clearUser = () => this.setState({ user: null })
 
   deleteAlert = (id) => {
     this.setState((state) => {
+      // set the msgAlerts state to all the msgAlerts but without the one with the id that matched the id passed in the parameter
       return { msgAlerts: state.msgAlerts.filter(msg => msg.id !== id) }
     })
   }
@@ -34,11 +41,13 @@ class App extends Component {
   msgAlert = ({ heading, message, variant }) => {
     const id = uuid()
     this.setState((state) => {
+      // set the msgAlerts state to be a new array ([]) with all of the msgAlerts from the current state (...state.msgAlerts) and a new message alert object using the heading, message, variant, and id provided => ({ heading, message, variant, id })
       return { msgAlerts: [...state.msgAlerts, { heading, message, variant, id }] }
     })
   }
 
   render () {
+    // destructure the msgAlerts and user state
     const { msgAlerts, user } = this.state
 
     return (
@@ -69,9 +78,32 @@ class App extends Component {
           )} />
         </header>
         <main>
+          {/* View all products | index */}
           <Route exact path ='/' component={Products} />
           <Route exact path='/products' component={Products} />
+
+          {/* View a single product | show */}
           <Route exact path='/products/:id' component={Product} />
+
+          {/* View all orders | index */}
+          <AuthenticatedRoute user={user} exact path='/orders' render={() => (
+            <OrdersIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+
+          {/* View a single order | show */}
+          <AuthenticatedRoute user={user} exact path='/orders/:id' render={() => (
+            <OrderShow msgAlert={this.msgAlert} user={user} />
+          )} />
+
+          {/* Create a new order | create */}
+          <AuthenticatedRoute user={user} path='/create-order' render={() => (
+            <OrderCreate msgAlert={this.msgAlert} user={user} />
+          )} />
+
+          {/* Update an existing order | update */}
+          <AuthenticatedRoute user={user} path='/orders/:id/edit' render={() => (
+            <OrderUpdate msgAlert={this.msgAlert} user={user} />
+          )} />
         </main>
       </Fragment>
     )
