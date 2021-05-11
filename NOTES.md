@@ -49,12 +49,12 @@
 
 ## Schedule
 #### Monday 5/10
-- [ ] Deploy API to Heroku
-- [ ] Deploy to Github pages
+- [x] Deploy API to Heroku
+- [x] Deploy to Github pages
 
 #### Tuesday 5/11
-- [ ] Auth - Backend
-- [ ] Create
+- [x] Auth - Backend
+- [ ] CRUD orders - Authenticated Routes
 
 #### Wednesday 5/12
 - [ ] Start integrating Stripe
