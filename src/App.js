@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
+// Import auth components
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
@@ -9,17 +10,18 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
-import Products from './components/Products/Products'
-import Product from './components/Product/Product'
-import OrdersIndex from './components/OrdersIndex/OrdersIndex'
+
+// Import resource components
+import ProductIndex from './components/ProductIndex/ProductIndex'
+import ProductShow from './components/ProductShow/ProductShow'
+import OrderIndex from './components/OrderIndex/OrderIndex'
 import OrderCreate from './components/OrderCreate/OrderCreate'
-import OrderUpdate from './components/OrderUpdate/OrderUpdate'
-// import OrderDelete from './components/OrderDelete/OrderDelete'
-import OrderShow from './components/OrderShow/OrderShow'
+import OrderDelete from './components/OrderDelete/OrderDelete'
 
 class App extends Component {
   constructor (props) {
     super(props)
+
     this.state = {
       user: null,
       msgAlerts: []
@@ -41,7 +43,7 @@ class App extends Component {
   msgAlert = ({ heading, message, variant }) => {
     const id = uuid()
     this.setState((state) => {
-      // set the msgAlerts state to be a new array ([]) with all of the msgAlerts from the current state (...state.msgAlerts) and a new message alert object using the heading, message, variant, and id provided => ({ heading, message, variant, id })
+      // set the msgAlerts state to be a new array ([]) with all of the msgAlerts from the current state (...state.msgAlerts) and a new message alert object using the arguments provided => ({ heading, message, variant, id })
       return { msgAlerts: [...state.msgAlerts, { heading, message, variant, id }] }
     })
   }
@@ -53,57 +55,45 @@ class App extends Component {
     return (
       <Fragment>
         <Header user={user} />
-        {msgAlerts.map(msgAlert => (
-          <AutoDismissAlert
-            key={msgAlert.id}
-            heading={msgAlert.heading}
-            variant={msgAlert.variant}
-            message={msgAlert.message}
-            id={msgAlert.id}
-            deleteAlert={this.deleteAlert}
-          />
-        ))}
-        <header className="container">
+
+        <main className="container">
           <Route path='/sign-up' render={() => (
-            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
+            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />)} />
           <Route path='/sign-in' render={() => (
-            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
+            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />)} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
-          )} />
+            <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />)} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword msgAlert={this.msgAlert} user={user} />
-          )} />
-        </header>
-        <main>
+            <ChangePassword msgAlert={this.msgAlert} user={user} />)} />
+
           {/* View all products | index */}
-          <Route exact path ='/' component={Products} />
-          <Route exact path='/products' component={Products} />
+          <Route exact path ='/' component={ProductIndex} />
+          <Route exact path='/products' component={ProductIndex} />
 
           {/* View a single product | show */}
-          <Route exact path='/products/:id' component={Product} />
+          <Route exact path='/products/:id' component={ProductShow} />
 
           {/* View all orders | index */}
           <AuthenticatedRoute user={user} exact path='/orders' render={() => (
-            <OrdersIndex msgAlert={this.msgAlert} user={user} />
-          )} />
-
-          {/* View a single order | show */}
-          <AuthenticatedRoute user={user} exact path='/orders/:id' render={() => (
-            <OrderShow msgAlert={this.msgAlert} user={user} />
-          )} />
+            <OrderIndex msgAlert={this.msgAlert} user={user} />)} />
 
           {/* Create a new order | create */}
           <AuthenticatedRoute user={user} path='/create-order' render={() => (
-            <OrderCreate msgAlert={this.msgAlert} user={user} />
-          )} />
+            <OrderCreate msgAlert={this.msgAlert} user={user} />)} />
 
-          {/* Update an existing order | update */}
-          <AuthenticatedRoute user={user} path='/orders/:id/edit' render={() => (
-            <OrderUpdate msgAlert={this.msgAlert} user={user} />
-          )} />
+          {/* Delete an existing order | update */}
+          <AuthenticatedRoute user={user} exact path='/orders/:id' render={() => (<OrderDelete msgAlert={this.msgAlert} user={user} />)} />
+
+          {msgAlerts.map(msgAlert => (
+            <AutoDismissAlert
+              key={msgAlert.id}
+              heading={msgAlert.heading}
+              variant={msgAlert.variant}
+              message={msgAlert.message}
+              id={msgAlert.id}
+              deleteAlert={this.deleteAlert}
+            />
+          ))}
         </main>
       </Fragment>
     )
