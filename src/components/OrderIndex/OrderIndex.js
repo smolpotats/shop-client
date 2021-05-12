@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
 import { orderIndex } from '../../api/orders'
 
-const OrdersIndex = props => {
+const OrderIndex = props => {
   const [orders, setOrders] = useState([])
   const { msgAlert, user } = this.props
 
@@ -47,4 +47,4 @@ const OrdersIndex = props => {
   )
 }
 
-export default OrdersIndex
+export default OrderIndex

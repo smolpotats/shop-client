@@ -2,18 +2,9 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 // view all orders
-export const ordersIndex = (user) => {
+export const orderIndex = (user) => {
   return axios({
     url: apiUrl + '/orders',
-    method: 'GET',
-    headers: { 'Authorization': `Token token=${user.token}` }
-  })
-}
-
-// view one order
-export const orderShow = (id, user) => {
-  return axios({
-    url: apiUrl + '/orders/' + id,
     method: 'GET',
     headers: { 'Authorization': `Token token=${user.token}` }
   })
@@ -29,6 +20,25 @@ export const orderCreate = (order, user) => {
   })
 }
 
+// delete an order
+export const orderDelete = (id, user) => {
+  return axios({
+    url: apiUrl + '/orders' + id,
+    method: 'DELETE',
+    headers: { 'Authorization': `Token token=${user.token}` }
+  })
+}
+
+/*
+// view one order
+export const orderShow = (id, user) => {
+  return axios({
+    url: apiUrl + '/orders/' + id,
+    method: 'GET',
+    headers: { 'Authorization': `Token token=${user.token}` }
+  })
+}
+
 // update an order - complete order
 export const orderUpdate = (id, order, user) => {
   return axios({
@@ -38,12 +48,4 @@ export const orderUpdate = (id, order, user) => {
     data: { order }
   })
 }
-
-// delete an order
-export const orderDelete = (id, user) => {
-  return axios({
-    url: apiUrl + '/orders' + id,
-    method: 'DELETE',
-    headers: { 'Authorization': `Token token=${user.token}` }
-  })
-}
+*/
