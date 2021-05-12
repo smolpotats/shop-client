@@ -55,16 +55,6 @@ class App extends Component {
     return (
       <Fragment>
         <Header user={user} />
-        {msgAlerts.map(msgAlert => (
-          <AutoDismissAlert
-            key={msgAlert.id}
-            heading={msgAlert.heading}
-            variant={msgAlert.variant}
-            message={msgAlert.message}
-            id={msgAlert.id}
-            deleteAlert={this.deleteAlert}
-          />
-        ))}
 
         <main className="container">
           <Route path='/sign-up' render={() => (
@@ -92,7 +82,18 @@ class App extends Component {
             <OrderCreate msgAlert={this.msgAlert} user={user} />)} />
 
           {/* Delete an existing order | update */}
-          <AuthenticatedRoute user={user} path='/orders/:id' render={() => (<OrderDelete msgAlert={this.msgAlert} user={user} />)} />
+          <AuthenticatedRoute user={user} exact path='/orders/:id' render={() => (<OrderDelete msgAlert={this.msgAlert} user={user} />)} />
+
+          {msgAlerts.map(msgAlert => (
+            <AutoDismissAlert
+              key={msgAlert.id}
+              heading={msgAlert.heading}
+              variant={msgAlert.variant}
+              message={msgAlert.message}
+              id={msgAlert.id}
+              deleteAlert={this.deleteAlert}
+            />
+          ))}
         </main>
       </Fragment>
     )
