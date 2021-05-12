@@ -1,7 +1,8 @@
 /* CREATE - CREATE A NEW ORDER */
 
 import React, { useState } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+// import { Link, Redirect } from 'react-router-dom'
 import { orderCreate } from '../../api/orders'
 
 const OrderCreate = props => {
@@ -25,9 +26,9 @@ const OrderCreate = props => {
       .catch(console.error())
   }
 
-  if (order) { // if value is not null
-    return <Redirect to={'/orders'} />
-  }
+  // if (order) { // if value is not null
+  //   return <Redirect to={'/orders'} />
+  // }
 
   return (
     <div>
