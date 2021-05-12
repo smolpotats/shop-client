@@ -16,7 +16,7 @@ const ProductIndex = (props) => {
   }, [])
 
   const listProducts = products.map(product => (
-    <Link to={`/products/${product.id}`} key={product.id} id={product.id}>
+    <Link to={`/products/${product.id}`} key={product.id} id={product.id} product={product}>
       <Card >
         {/* <img src={process.env.PUBLIC_URL + `images/${product.id}.jpg`}/> */}
         <Card.Img variant="top" />
