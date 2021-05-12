@@ -9,15 +9,6 @@ const OrderCreate = props => {
   const [order, setOrder] = useState({ product: null, total: null })
   const user = props.user
 
-  /*
-  // when an input changes, update the state that corresponds with the input's name (ex: form changes)
-  const handleChange = event => {
-    event.persist()
-    // ensures the properties are not set to null after handleChange is finished
-    setOrder()
-  }
-*/
-
   const handleSubmit = event => {
     event.preventDefault()
 

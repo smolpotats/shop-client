@@ -23,7 +23,7 @@ export const orderCreate = (order, user) => {
 // delete an order
 export const orderDelete = (id, user) => {
   return axios({
-    url: apiUrl + '/orders' + id,
+    url: apiUrl + '/orders/' + id,
     method: 'DELETE',
     headers: { 'Authorization': `Token token=${user.token}` }
   })
