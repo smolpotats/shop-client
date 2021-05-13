@@ -1,8 +1,7 @@
 /* CREATE - CREATE A NEW ORDER */
 
 import React, { useState } from 'react'
-import StripeCheckout from 'react-stripe-checkout'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import { Link, Redirect } from 'react-router-dom'
 import { orderCreate } from '../../api/orders'
 
@@ -23,20 +22,11 @@ const OrderCreate = props => {
   // }
 
   return (
-    // make order form component
-    // <OrderForm />
-    <StripeCheckout
-      stripeKey='idk_what_this_is_yet'
-      token={handleSubmit}
-      name='Shop Name'
-      description='Enter your information to place order:'
-      // image=''
-      // ComponentClass='div'
-      label='Purchase'
-      // panelLabel='gib monie'
-      // amount={product.price}
-
-    />
+    <div>
+      <Link to='/create-order'>
+        <button onSubmit={handleSubmit} type='submit' className='btn btn-primary'>Purchase</button>
+      </Link>
+    </div>
   )
 }
 
