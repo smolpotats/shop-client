@@ -1,1 +1,45 @@
 @import '~bootstrap/scss/bootstrap';
+
+* {
+  box-sizing: border-box;
+  image-rendering: pixelated;
+}
+
+body {
+  
+}
+
+.card {
+  border: 2px solid white;
+  border-radius: 0;
+  color: black;
+  margin: 2px;
+  width: 180px;
+  // box-shadow: 4px 4px gray;
+  &:hover {
+    border: $info solid 1px;
+  }
+}
+
+.card-img-top {
+  width: 128px;
+  align-self: center;
+  padding: 3px;
+}
+
+.card-title {
+  padding: 5px;
+}
+
+.card-footer {
+  background-color: white;
+  text-align: right;
+}
+
+img {
+  filter: drop-shadow(1px 1px 1px gray);
+  &:hover {
+    filter: drop-shadow(4px 4px 4px gray);
+    transform: translate(3px 3px);
+  }
+}

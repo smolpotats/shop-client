@@ -82,7 +82,8 @@ class App extends Component {
             <OrderCreate msgAlert={this.msgAlert} user={user} />)} />
 
           {/* Delete an existing order | update */}
-          <AuthenticatedRoute user={user} exact path='/orders/:id' render={() => (<OrderDelete msgAlert={this.msgAlert} user={user} />)} />
+          <AuthenticatedRoute user={user} exact path='/orders/:id' render={() =>
+            (<OrderDelete msgAlert={this.msgAlert} user={user} />)} />
 
           {msgAlerts.map(msgAlert => (
             <AutoDismissAlert
