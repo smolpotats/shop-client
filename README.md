@@ -18,9 +18,9 @@ https://smolpotats.github.io/shop-client/
 - Build a search feature so that people can search for specific products by name.
 
 ### WireFrames
+![Wireframe 3](/public/images/wireframe-01.jpg)
 ![Wireframe 1](/public/images/project_3_wireframe_1.jpg)
 ![Wireframe 2](/public/images/project_3_wireframe_2.jpg)
-![Wireframe 3](/public/images/wireframe-01.jpg)
 
 ### ERD
 ![Entity Relationship Diagram](public/images/project_3_erd.jpg)
