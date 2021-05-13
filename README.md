@@ -1,6 +1,8 @@
-# shop-project
-## Important Links
-
+# Shop-Project-Client
+##### Amalia Advincula-Roye, Elaine Chan, Kristian Llano
+This application allows the user to sign up a new account, log in to the new account, sign-out of the account, change the account's password, as well as purchase items!
+## Deployed website
+https://smolpotats.github.io/shop-client/
 ## Project Planning
 ### User Stories
 - As an unregistered user, I would like to sign up with email and password.
@@ -18,6 +20,7 @@
 ### WireFrames
 ![Wireframe 1](/public/images/project_3_wireframe_1.jpg)
 ![Wireframe 2](/public/images/project_3_wireframe_2.jpg)
+![Wireframe 3](/public/images/wireframe-01.jpg)
 
 ### ERD
 ![Entity Relationship Diagram](public/images/project_3_erd.jpg)
