@@ -71,7 +71,9 @@ class App extends Component {
           <Route exact path='/products' component={ProductIndex} />
 
           {/* View a single product | show */}
-          <Route exact path='/products/:id' component={ProductShow} />
+          {/* <Route user={user} exact path='/products/:id' component={ProductShow} /> */}
+          <Route exact path='/products/:id' render={(props, product) => (
+            <ProductShow msgAlert={this.msgAlert} match={props.match} product={product} history={props.history} location={props.location} user={user}/>)} />
 
           {/* View all orders | index */}
           <AuthenticatedRoute user={user} exact path='/orders' render={() => (

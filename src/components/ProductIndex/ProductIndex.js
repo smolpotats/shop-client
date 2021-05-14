@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Card from 'react-bootstrap/Card'
-import CardDeck from 'react-bootstrap/CardDeck'
+import { Card, CardDeck, Container, Image } from 'react-bootstrap'
 import { productIndex } from '../../api/products'
 
 const ProductIndex = (props) => {
@@ -18,7 +17,10 @@ const ProductIndex = (props) => {
   const listProducts = products.map(product => (
     <Link to={`/products/${product.id}`} key={product.id} id={product.id} product={product}>
       <Card>
-        <Card.Img src={`/images/${product.id}.png`} alt={product.name} variant="top" />
+        <Image
+          src={`/images/${product.id}.png`}
+          alt={product.name}
+        />
         <Card.Title>{product.name}</Card.Title>
         <Card.Footer>$ {product.price}</Card.Footer>
       </Card>
@@ -26,9 +28,11 @@ const ProductIndex = (props) => {
   ))
 
   return (
-    <CardDeck>
-      {listProducts}
-    </CardDeck>
+    <Container>
+      <CardDeck>
+        {listProducts}
+      </CardDeck>
+    </Container>
   )
 }
 
