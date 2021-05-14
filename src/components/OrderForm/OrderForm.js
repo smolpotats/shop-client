@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+// import { orderCreate } from '../../api/orders'
 
-const OrderForm = ({ order, handleSubmit, handleChange, cancelPath }) => (
+const OrderForm = ({ handleSubmit, handleChange, cancelPath }) => (
   <form onSubmit={handleSubmit}>
     <label>First Name</label>
     <input
       placeholder="First Name"
-      value={order.name}
+      // value={order.name}
       name="firstName"
       onChange={handleChange}
     />
@@ -14,7 +15,7 @@ const OrderForm = ({ order, handleSubmit, handleChange, cancelPath }) => (
     <label>Last Name</label>
     <input
       placeholder="Last Name"
-      value={order.title}
+      // value={order.title}
       name="lastName"
       onChange={handleChange}
     />
@@ -22,7 +23,7 @@ const OrderForm = ({ order, handleSubmit, handleChange, cancelPath }) => (
     <label>Address</label>
     <input
       placeholder="Address"
-      value={order.author}
+      // value={order.author}
       name="address"
       onChange={handleChange}
     />
@@ -30,7 +31,7 @@ const OrderForm = ({ order, handleSubmit, handleChange, cancelPath }) => (
     <label>Apt</label>
     <input
       placeholder="Apt."
-      value={order.author}
+      // value={order.author}
       name="apt"
       onChange={handleChange}
     />
@@ -38,7 +39,7 @@ const OrderForm = ({ order, handleSubmit, handleChange, cancelPath }) => (
     <label>City</label>
     <input
       placeholder="City"
-      value={order.author}
+      // value={order.author}
       name="city"
       onChange={handleChange}
     />
@@ -46,7 +47,7 @@ const OrderForm = ({ order, handleSubmit, handleChange, cancelPath }) => (
     <label>State</label>
     <input
       placeholder="State"
-      value={order.author}
+      // value={order.author}
       name="state"
       onChange={handleChange}
     />
@@ -54,7 +55,7 @@ const OrderForm = ({ order, handleSubmit, handleChange, cancelPath }) => (
     <label>Zip</label>
     <input
       placeholder="Zip"
-      value={order.author}
+      // value={order.author}
       name="zip"
       onChange={handleChange}
     />
@@ -62,7 +63,7 @@ const OrderForm = ({ order, handleSubmit, handleChange, cancelPath }) => (
     <label>Country</label>
     <input
       placeholder="Country"
-      value={order.author}
+      // value={order.author}
       name="country"
       onChange={handleChange}
     />
