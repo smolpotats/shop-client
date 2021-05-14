@@ -6,7 +6,7 @@ export const orderIndex = (user) => {
   return axios({
     url: apiUrl + '/orders',
     method: 'GET',
-    headers: { 'Authorization': `Token token=${user.token}` }
+    headers: { 'Authorization': `Bearer ${user.token}` }
   })
 }
 
@@ -15,7 +15,7 @@ export const orderCreate = (order, user) => {
   return axios({
     url: apiUrl + '/orders',
     method: 'POST',
-    headers: { 'Authorization': `Token token=${user.token}` },
+    headers: { 'Authorization': `Bearer ${user.token}` },
     data: { order }
   })
 }
@@ -25,7 +25,7 @@ export const orderDelete = (id, user) => {
   return axios({
     url: apiUrl + '/orders/' + id,
     method: 'DELETE',
-    headers: { 'Authorization': `Token token=${user.token}` }
+    headers: { 'Authorization': `Bearer ${user.token}` }
   })
 }
 
