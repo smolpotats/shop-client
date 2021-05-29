@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Card, CardDeck, Container, Image } from 'react-bootstrap'
 import { productIndex } from '../../api/products'
+// import imageFolder from '../../images/products'
 
 const ProductIndex = (props) => {
   const [products, setProducts] = useState([])
@@ -18,7 +19,7 @@ const ProductIndex = (props) => {
     <Link to={`/products/${product.id}`} key={product.id} id={product.id} product={product}>
       <Card>
         <Image
-          src={`/images/products/${product.image}`}
+          src={product.image ? require(`../../images/products/${product.image}`) : null}
           alt={product.name}
         />
         <Card.Title>{product.name}</Card.Title>
