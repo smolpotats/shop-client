@@ -18,7 +18,7 @@ const ProductIndex = (props) => {
     <Link to={`/products/${product.id}`} key={product.id} id={product.id} product={product}>
       <Card>
         <Image
-          src={`/images/${product.id}.png`}
+          src={`/images/products/${product.image}`}
           alt={product.name}
         />
         <Card.Title>{product.name}</Card.Title>
