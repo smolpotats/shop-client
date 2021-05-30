@@ -64,7 +64,7 @@ const ProductShow = (props) => {
       />
       <Card.Title>{product.name}</Card.Title>
       <Card.Footer>$ {product.price}</Card.Footer>
-      {/* <OrderCreate /> */}
+      {/* Ternary Operator to check if a user is signed in, if not, redirect to the sign-in page */}
       { props.user
         ? <StripeCheckout
           stripeKey='pk_test_51IqqKJKXj9MQ2P30LfUswrjlWAjmeliPtwsVjLkWpDOn7XyGB6gxGWpOBYRLd4nzQ4oUVfQqjwL3I4O1z02i5mSD00adfFo50i'

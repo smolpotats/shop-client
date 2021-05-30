@@ -19,7 +19,7 @@ const OrderIndex = (props) => {
       .then(() =>
         msgAlert({
           heading: 'Loaded Order History',
-          message: 'All orders found!',
+          message: 'Loaded all Orders!',
           variant: 'success'
         }))
       .catch(error => {
@@ -35,7 +35,7 @@ const OrderIndex = (props) => {
   // shipping types: overnight, express, standard, pickup
   const orderCards = orders.map(order => (
     <Card key={order._id}>
-      <Card.Header>Order #: {order._id}</Card.Header>
+      <Card.Header className='order-id'>Order #: {order._id}</Card.Header>
       <Card.Body>
         <Link to={`/products/${order.product}`}>
           <Image src={`/images/${order.product}.png`} alt='product image' />

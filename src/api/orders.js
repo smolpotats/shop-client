@@ -34,7 +34,7 @@ export const orderUpdate = (id, order, user) => {
   return axios({
     url: apiUrl + '/orders' + id,
     method: 'PATCH',
-    headers: { 'Authorization': `Token token=${user.token}` },
+    headers: { 'Authorization': `Bearer ${user.token}` },
     data: { order }
   })
 }
