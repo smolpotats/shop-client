@@ -29,6 +29,16 @@ export const orderDelete = (id, user) => {
   })
 }
 
+// update an order - change delivery type
+export const orderUpdate = (id, order, user) => {
+  return axios({
+    url: apiUrl + '/orders' + id,
+    method: 'PATCH',
+    headers: { 'Authorization': `Token token=${user.token}` },
+    data: { order }
+  })
+}
+
 /*
 // view one order
 export const orderShow = (id, user) => {
@@ -39,13 +49,4 @@ export const orderShow = (id, user) => {
   })
 }
 
-// update an order - complete order
-export const orderUpdate = (id, order, user) => {
-  return axios({
-    url: apiUrl + '/orders' + id,
-    method: 'PATCH',
-    headers: { 'Authorization': `Token token=${user.token}` },
-    data: { order }
-  })
-}
 */

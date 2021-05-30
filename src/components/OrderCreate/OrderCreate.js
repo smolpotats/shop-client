@@ -1,41 +1,65 @@
 /* CREATE - CREATE A NEW ORDER */
 
-// import React, { useState, Fragment } from 'react'
-// import React, { useState } from 'react'
+// DOESNT WORK IDK I SORRY I TRIED
 
-// import { Link } from 'react-router-dom'
-// import { Link, Redirect } from 'react-router-dom'
+// import React, { Fragment } from 'react'
+// import StripeCheckout from 'react-stripe-checkout'
+// // import { Link } from 'react-router-dom'
+// // import { Link, Redirect } from 'react-router-dom'
 // import { orderCreate } from '../../api/orders'
-// import OrderForm from '../OrderForm/OrderForm'
-
+// // import OrderForm from '../OrderForm/OrderForm'
+// import { Button } from 'react-bootstrap'
+// import messages from '../AutoDismissAlert/messages'
+//
 // const OrderCreate = props => {
-// const [order, setOrder] = useState({ product: null, total: null })
-// const user = props.user
-
-// const handleChange = event => {
-//   event.persist()
+//   // const [order, setOrder] = useState({ product: null, total: null })
+//   const { user, msgAlert, product } = props
 //
-//   setOrder(prevOrder => {
+//   const handleSubmit = event => {
+//     const order = {
+//       product: product,
+//       total: product.price,
+//       isComplete: true,
+//       owner: props.user
+//     }
+//     orderCreate(order, props.user) // axios call to API
+//       .then(() => msgAlert({
+//         heading: 'Order created successfully',
+//         message: messages.orderCreateSuccess,
+//         variant: 'success'
+//       }))
+//       .catch(error => {
+//         msgAlert({
+//           heading: 'Order not created: ' + error.message,
+//           message: messages.orderCreateFailure,
+//           variant: 'danger'
+//         })
+//       })
+//   }
 //
-//   })
+//   // if (order) { // if value is not null
+//   //   return <Redirect to={'/orders'} />
+//   // }
+//   if (!user) {
+//     return (<Button>Purchase!</Button>)
+//   }
+//   return (
+//     <Fragment>
+//       <StripeCheckout
+//         stripeKey='pk_test_51IqqKJKXj9MQ2P30LfUswrjlWAjmeliPtwsVjLkWpDOn7XyGB6gxGWpOBYRLd4nzQ4oUVfQqjwL3I4O1z02i5mSD00adfFo50i'
+//         token={handleSubmit}
+//         name='Beaux Degas'
+//         description='Enter your information to place order:'
+//         // image=''
+//         // ComponentClass='div'
+//         label='Purchase'
+//         // shippingAddress
+//         billingAddress={false}
+//         // panelLabel='gib monie'
+//         // amount={product.price}
+//       />
+//     </Fragment>
+//   )
 // }
 //
-// const handleSubmit = event => {
-//   // event.preventDefault()
-//   console.log('event', event)
-//   orderCreate(order, user) // axios call to API
-//     .then(res => setOrder(res.data.order))
-//     .catch(console.error())
-// }
-
-// if (order) { // if value is not null
-//   return <Redirect to={'/orders'} />
-// }
-
-// return (
-//   // make order form component
-//
-// )
-// }
-
 // export default OrderCreate

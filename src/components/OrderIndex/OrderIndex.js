@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { Card, CardColumns, Image } from 'react-bootstrap'
+import { Card, CardColumns, Image, Form, Row } from 'react-bootstrap'
 // import OrderDelete from '../OrderDelete/OrderDelete'
 import { orderIndex } from '../../api/orders'
 
@@ -12,7 +12,10 @@ const OrderIndex = (props) => {
 
   useEffect(() => {
     orderIndex(user) // axios request
-      .then(res => { setOrders(res.data.orders) })
+      .then(res => {
+        console.log(res)
+        setOrders(res.data.orders)
+      })
       .then(() =>
         msgAlert({
           heading: 'Loaded Order History',
@@ -29,24 +32,34 @@ const OrderIndex = (props) => {
       })
   }, [])
 
-  const listOrders = orders.map(order => (
-    <Card key={order.id}>
-      <Card.Header>Order #: {order.id}</Card.Header>
+  // shipping types: overnight, express, standard, pickup
+  const orderCards = orders.map(order => (
+    <Card key={order._id}>
+      <Card.Header>Order #: {order._id}</Card.Header>
       <Card.Body>
         <Link to={`/products/${order.product}`}>
           <Image src={`/images/${order.product}.png`} alt='product image' />
         </Link>
-        {/*        <Link to='/delete-order'>
-          <Button order={order}>Cancel Order <OrderDelete order={order} /></Button>
-        </Link> */}
+
+        <Form>
+          <Form.Group as={Row} controlId='formOrderShipping'>
+            <Form.Label>Shipping Speed</Form.Label>
+            <Form.Control as='select' defaultValue={order.shipping}>
+              <option>Standard</option>
+              <option>Express</option>
+              <option>Overnight</option>
+            </Form.Control>
+          </Form.Group>
+        </Form>
         Total: ${order.total}
       </Card.Body>
+      <Card.Footer></Card.Footer>
     </Card>
   ))
 
   return (
     <CardColumns>
-      {listOrders}
+      {orderCards}
     </CardColumns>
   )
 }
