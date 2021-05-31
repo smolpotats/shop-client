@@ -1,7 +1,7 @@
 export default {
-  signUpSuccess: 'Succesfully registered! You\'ve been signed in as well.',
+  signUpSuccess: 'Thank you for registering your account! You\'ve been signed in!',
   signUpFailure: 'Registration failed. Email may be taken, or passwords don\'t match.',
-  signInSuccess: 'Welcome!',
+  signInSuccess: 'Welcome back! Happy Shopping!',
   signInFailure: 'Failed to sign in. Check your email and password and try again.',
   signOutSuccess: 'Come back soon!',
   changePasswordSuccess: 'Password changed successfully!',

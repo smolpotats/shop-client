@@ -15,8 +15,9 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import ProductIndex from './components/ProductIndex/ProductIndex'
 import ProductShow from './components/ProductShow/ProductShow'
 import OrderIndex from './components/OrderIndex/OrderIndex'
-import OrderCreate from './components/OrderCreate/OrderCreate'
+// import OrderCreate from './components/OrderCreate/OrderCreate'
 import OrderDelete from './components/OrderDelete/OrderDelete'
+import SplashPage from './components/SplashPage'
 
 class App extends Component {
   constructor (props) {
@@ -67,11 +68,10 @@ class App extends Component {
             <ChangePassword msgAlert={this.msgAlert} user={user} />)} />
 
           {/* View all products | index */}
-          <Route exact path ='/' component={ProductIndex} />
+          <Route exact path ='/' component={SplashPage} />
           <Route exact path='/products' component={ProductIndex} />
 
           {/* View a single product | show */}
-          {/* <Route user={user} exact path='/products/:id' component={ProductShow} /> */}
           <Route exact path='/products/:id' render={(props, product) => (
             <ProductShow msgAlert={this.msgAlert} match={props.match} product={product} history={props.history} location={props.location} user={user}/>)} />
 
@@ -80,8 +80,10 @@ class App extends Component {
             <OrderIndex msgAlert={this.msgAlert} user={user} />)} />
 
           {/* Create a new order | create */}
-          <AuthenticatedRoute user={user} path='/create-order' render={() => (
+          {/*
+            <AuthenticatedRoute user={user} path='/create-order' render={() => (
             <OrderCreate msgAlert={this.msgAlert} user={user} />)} />
+          */}
 
           {/* Delete an existing order | update */}
           <AuthenticatedRoute user={user} exact path='/orders/:id' render={() =>

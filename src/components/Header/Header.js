@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 
 const authenticatedOptions = (
   <Fragment>
@@ -25,8 +25,8 @@ const unauthenticatedOptions = (
 // )
 
 const Header = ({ user }) => (
-  <Container>
-    <Navbar bg="primary" variant="dark" expand="md">
+  <Fragment>
+    <Navbar bg="dark" variant="dark" expand="md">
       <Navbar.Brand href="#">Beaux Degas</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -36,7 +36,7 @@ const Header = ({ user }) => (
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  </Container>
+  </Fragment>
 )
 
 export default Header
