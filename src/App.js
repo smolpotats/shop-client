@@ -15,7 +15,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import ProductIndex from './components/ProductIndex/ProductIndex'
 import ProductShow from './components/ProductShow/ProductShow'
 import OrderIndex from './components/OrderIndex/OrderIndex'
-import OrderCreate from './components/OrderCreate/OrderCreate'
+// import OrderCreate from './components/OrderCreate/OrderCreate'
 import OrderDelete from './components/OrderDelete/OrderDelete'
 import SplashPage from './components/SplashPage'
 
@@ -80,8 +80,10 @@ class App extends Component {
             <OrderIndex msgAlert={this.msgAlert} user={user} />)} />
 
           {/* Create a new order | create */}
-          <AuthenticatedRoute user={user} path='/create-order' render={() => (
+          {/*
+            <AuthenticatedRoute user={user} path='/create-order' render={() => (
             <OrderCreate msgAlert={this.msgAlert} user={user} />)} />
+          */}
 
           {/* Delete an existing order | update */}
           <AuthenticatedRoute user={user} exact path='/orders/:id' render={() =>
