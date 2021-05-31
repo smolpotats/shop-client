@@ -12,7 +12,7 @@ export default [
       }
     ],
     total: 1.00,
-    isComplete: true,
+    shipping: 'standard',
     dateCompleted: 123
   }
 ]
