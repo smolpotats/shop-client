@@ -59,7 +59,7 @@ const ProductShow = (props) => {
   const productHtml = (
     <Card key={product.id}>
       <Image
-        src={`/images/${product.id}.png`}
+        src={product.image ? require(`../../images/products/${product.image}`) : null}
         alt={product.name}
       />
       <Card.Title>{product.name}</Card.Title>
