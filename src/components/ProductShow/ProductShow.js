@@ -11,18 +11,14 @@ import messages from '../AutoDismissAlert/messages'
 
 const ProductShow = (props) => {
   const [product, setProduct] = useState(null)
-  // console.log('product is: ', product)
-  // console.log('state is: ', this.state)
 
   const handleSubmit = event => {
     // event.preventDefault()
-    // console.log('event', event)
-    // console.log('this is porps', props)
     const { msgAlert } = props
     const order = {
       product: product,
+      deliveryType: 'standard',
       total: product.price,
-      isComplete: true,
       owner: props.user
     }
     orderCreate(order, props.user) // axios call to API
@@ -59,8 +55,8 @@ const ProductShow = (props) => {
   const productHtml = (
     <Card key={product.id}>
       <Image
-        src={`/images/${product.id}.png`}
-        alt={product.name}
+        src={product.image ? require(`../../images/products/${product.image}`) : null}
+        alt= {product.name}
       />
       <Card.Title>{product.name}</Card.Title>
       <Card.Footer>$ {product.price}</Card.Footer>
