@@ -55,8 +55,7 @@ const ProductShow = (props) => {
   const productHtml = (
     <Card key={product.id}>
       <Image
-        src={product.image ? require(`../../images/products/${product.image}`) : null}
-        alt= {product.name}
+        src={product.image ? require(`../../images/products/${product.image}`) : null} alt={product.name}
       />
       <Card.Title>{product.name}</Card.Title>
       <Card.Footer>$ {product.price}</Card.Footer>
