@@ -7,7 +7,7 @@ const SplashPage = () => {
     <Container className='wrapper'>
       <Link to='/products'>
         <Image
-          src='/images/bodega.png'
+          src={require('../images/bodega.png')}
           fluid
           className='splash'
         />
