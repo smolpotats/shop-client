@@ -32,7 +32,7 @@ export const orderDelete = (id, user) => {
 // update an order - change delivery type
 export const orderUpdate = (id, order, user) => {
   return axios({
-    url: apiUrl + '/orders' + id,
+    url: apiUrl + '/orders/' + id,
     method: 'PATCH',
     headers: { 'Authorization': `Bearer ${user.token}` },
     data: { order }
