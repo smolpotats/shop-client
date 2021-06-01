@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { Card, CardColumns, Image, Form, Row } from 'react-bootstrap'
-// import OrderDelete from '../OrderDelete/OrderDelete'
-import { orderIndex } from '../../api/orders'
+import { Card, CardColumns, Image, Button } from 'react-bootstrap'
+
+import OrderUpdate from '../OrderUpdate/OrderUpdate'
+import { orderIndex, orderDelete } from '../../api/orders'
+// import { productShow } from '../../api/products'
 
 const OrderIndex = (props) => {
   const [orders, setOrders] = useState([])
@@ -13,15 +15,23 @@ const OrderIndex = (props) => {
   useEffect(() => {
     orderIndex(user) // axios request
       .then(res => {
-        console.log(res)
+        // await res.data.orders.forEach(async order => {
+        // for (const order of res.data.orders) {
+        //   const product = await productShow(order.product, user)
+        //   order.product = product
+        // }
         setOrders(res.data.orders)
       })
-      .then(() =>
+
+      // .then(setOrders(res.data.orders))
+      .then(() => {
         msgAlert({
           heading: 'Loaded Order History',
           message: 'Loaded all Orders!',
           variant: 'success'
-        }))
+        })
+      })
+
       .catch(error => {
         setOrders([])
         msgAlert({
@@ -32,30 +42,61 @@ const OrderIndex = (props) => {
       })
   }, [])
 
+  const handleDelete = event => {
+    const orderId = event.target.id
+    orderDelete(orderId, user) // axios call to API
+      .then(() => {
+        msgAlert({
+          heading: 'Order Canceled!',
+          message: 'Your order has been canceled!',
+          variant: 'success'
+        })
+      })
+      // updates orders array
+      .catch(error => {
+        msgAlert({
+          heading: 'Coudn\'t cancel your order!',
+          message: 'Could not cancel order with error: ' + error.message,
+          variant: 'danger'
+        })
+      })
+      .then(() => {
+        const updatedOrders = orders.filter((order) => order._id !== orderId)
+        setOrders(updatedOrders)
+      })
+      .catch(error => {
+        msgAlert({
+          heading: 'Your order was deleted!',
+          message: 'But we\'re too shy to show you...UwU: ' + error.message,
+          variant: 'danger'
+        })
+      })
+  }
   // shipping types: overnight, express, standard, pickup
-  const orderCards = orders.map(order => (
-    <Card key={order._id}>
-      <Card.Header className='order-id'>Order #: {order._id}</Card.Header>
-      <Card.Body>
-        <Link to={`/products/${order.product}`}>
-          <Image src={`/images/${order.product}.png`} alt='product image' />
-        </Link>
+  const orderCards = orders.map(order => {
+    // search database for product info for each order
 
-        <Form>
-          <Form.Group as={Row} controlId='formOrderShipping'>
-            <Form.Label>Shipping Speed</Form.Label>
-            <Form.Control as='select' defaultValue={order.shipping}>
-              <option>Standard</option>
-              <option>Express</option>
-              <option>Overnight</option>
-            </Form.Control>
-          </Form.Group>
-        </Form>
-        Total: ${order.total}
-      </Card.Body>
-      <Card.Footer></Card.Footer>
-    </Card>
-  ))
+    return (
+      <Card key={order._id}>
+        <Card.Header className='order-id'>Order #: {order._id}</Card.Header>
+        <Card.Body>
+          <Card.Title>{order.product.name}</Card.Title>
+          <Link to={`/products/${order.product}`}>
+            <Image src={order.product.image ? require(`../../images/products/${order.product.image}`) : null} alt={order.product.name}/>
+          </Link>
+
+          <OrderUpdate
+            order={order}
+            user={user}
+            msgAlert={msgAlert}
+          />
+          <Button onClick={handleDelete} id={order._id}>Delete Order!</Button>
+
+        </Card.Body>
+        <Card.Footer>Total: ${order.total}</Card.Footer>
+      </Card>
+    )
+  })
 
   return (
     <CardColumns>
