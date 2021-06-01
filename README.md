@@ -57,3 +57,4 @@ Technology    | Front-End | Back-End |
 - For security purposes, only allow existing admin accounts the ability to
   create other admin accounts.
 - Have an inventory/stock status on products to know if the product is in stock.
+- Include Mongoose `populate` to have the full `product` object on each `order`.
